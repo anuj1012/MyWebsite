@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anuj Shakya - Portfolio</title>
+    
+    <!-- External CSS -->
+    <link rel="stylesheet" href="css/portfolio.css">
+    
+    <!-- External Libraries -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="theme-body">
+    <div id="cursor-glow" class="cursor-glow"></div>
+    <div id="scroll-progress-bar" class="scroll-progress"></div>
+    
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <a href="#home" class="logo-pulse font-bold text-xl">
+                        <span class="logo-gradient">Anuj</span>
+                        <span class="logo-gradient">Shakya</span>
+                    </a>
+                </div>
+                <div id="nav-menu" class="hidden md:flex space-x-2">
+                    <a href="#home" class="nav-link relative px-3 py-2">
+                        <span class="relative z-10">Home</span>
+                    </a>
+                    <a href="#about" class="nav-link relative px-3 py-2">
+                        <span class="relative z-10">About</span>
+                    </a>
+                    <a href="#skills" class="nav-link relative px-3 py-2">
+                        <span class="relative z-10">Skills</span>
+                    </a>
+                    <a href="#experience" class="nav-link relative px-3 py-2">
+                        <span class="relative z-10">Experience</span>
+                    </a>
+                    <a href="#projects" class="nav-link relative px-3 py-2">
+                        <span class="relative z-10">Projects</span>
+                    </a>
+                    <a href="#contact" class="nav-link relative px-3 py-2">
+                        <span class="relative z-10">Contact</span>
+                    </a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <!-- Light/Dark Toggle -->
+                    <button id="theme-toggle" class="hover:transition-colors duration-300 p-2 rounded-lg hover:bg-gray-100 relative group" aria-label="Toggle dark mode">
+                        <i id="theme-icon" class="fas fa-moon text-xl"></i>
+                    </button>
+                    <!-- Mobile Menu Button -->
+                    <button id="mobile-menu-btn" class="md:hidden hover:transition-colors duration-300 p-2 rounded-lg hover:bg-gray-100 focus:outline-none">
+                        <span id="mobile-menu-icon" class="block"><i class="fas fa-bars text-xl"></i></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="gradient-bg relative overflow-hidden min-h-screen flex items-center justify-center text-white">
+        <!-- Decorative blobs -->
+        <span class="blob blob-1"></span>
+        <span class="blob blob-2"></span>
+        <span class="blob blob-3"></span>
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="animate-fade-in">
+                <div class="floating mb-8">
+                    <div class="w-32 h-32 mx-auto bg-white bg-opacity-20 rounded-full flex items-center justify-center">
+                        <i class="fas fa-code text-5xl text-white"></i>
+                    </div>
+                </div>
+                <h1 class="animated-gradient-text text-5xl md:text-7xl font-extrabold mb-6 animate-slide-up">
+                    Hi, I'm <span class="text-yellow-300">Anuj Shakya</span>
+                </h1>
+                <p class="text-xl md:text-2xl mb-8 animate-slide-up">
+                    Java Developer & Full Stack Developer
+                </p>
+                <p class="text-lg md:text-xl mb-12 max-w-3xl mx-auto animate-slide-up">
+                    Passionate about creating innovative solutions with modern technologies. 
+                    Specialized in Java, Spring Boot, and web development.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center animate-slide-up">
+                    <a href="#projects" class="btn-primary">
+                        View My Work
+                    </a>
+                    <a href="#contact" class="btn-secondary">
+                        Get In Touch
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 theme-section">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4 animate-slide-up section-title">About Me</h2>
+            </div>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="animate-slide-left">
+                    <div class="relative">
+                        <div class="w-full h-96 bg-gradient-to-br from-purple-400 to-blue-500 rounded-2xl flex items-center justify-center">
+                            <i class="fas fa-user text-8xl text-white opacity-50"></i>
+                        </div>
+                        <div class="absolute -bottom-6 -right-6 w-24 h-24 bg-yellow-400 rounded-full flex items-center justify-center">
+                            <i class="fas fa-laptop-code text-3xl text-white"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="animate-slide-right">
+                    <h3 class="text-3xl font-bold mb-6">Hello! I'm Anuj</h3>
+                    <p class="text-lg mb-6 leading-relaxed">
+                        I'm a passionate Computer Science Engineering graduate from Gurukula Kangri University, 
+                        Haridwar, with a strong foundation in Java development and web technologies. 
+                        Currently working as a Java Developer Intern at StrongMoment Private Limited.
+                    </p>
+                    <p class="text-lg mb-8 leading-relaxed">
+                        I love creating innovative solutions and have experience in building enterprise applications 
+                        using Spring Boot microservices, RESTful APIs, and modern web technologies. 
+                        My goal is to contribute to meaningful projects that make a difference.
+                    </p>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="text-center p-4 rounded-lg theme-card">
+                            <i class="fas fa-graduation-cap text-2xl mb-2" style="color: var(--primary-color);"></i>
+                            <p class="font-semibold">B.Tech CSE</p>
+                            <p class="text-sm">80%</p>
+                        </div>
+                        <div class="text-center p-4 rounded-lg theme-card">
+                            <i class="fas fa-briefcase text-2xl mb-2" style="color: var(--secondary-color);"></i>
+                            <p class="font-semibold">Java Developer</p>
+                            <p class="text-sm">Intern</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 theme-section">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4 animate-slide-up section-title">Technical Skills</h2>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Programming Languages -->
+                <div class="tilt-card theme-card p-8 card-hover animate-slide-up">
+                    <div class="text-center mb-6">
+                        <i class="fas fa-code text-4xl mb-4" style="color: var(--primary-color);"></i>
+                        <h3 class="text-xl font-bold">Languages</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span>Java</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="skill-bar rounded-full" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span>JavaScript</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="skill-bar rounded-full" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span>Python</span>
+                                <span>75%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="skill-bar rounded-full" style="width: 75%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Frameworks -->
+                <div class="tilt-card theme-card p-8 card-hover animate-slide-up">
+                    <div class="text-center mb-6">
+                        <i class="fas fa-layer-group text-4xl mb-4" style="color: var(--secondary-color);"></i>
+                        <h3 class="text-xl font-bold">Frameworks</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span>Spring Boot</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="skill-bar rounded-full" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span>Spring MVC</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="skill-bar rounded-full" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span>Microservices</span>
+                                <span>80%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="skill-bar rounded-full" style="width: 80%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Web Technologies -->
+                <div class="tilt-card theme-card p-8 card-hover animate-slide-up">
+                    <div class="text-center mb-6">
+                        <i class="fas fa-globe text-4xl mb-4" style="color: var(--accent-color);"></i>
+                        <h3 class="text-xl font-bold">Web Technologies</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span>HTML/CSS</span>
+                                <span>95%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="skill-bar rounded-full" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span>TailwindCSS</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="skill-bar rounded-full" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span>React</span>
+                                <span>80%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="skill-bar rounded-full" style="width: 80%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Databases -->
+                <div class="tilt-card theme-card p-8 card-hover animate-slide-up">
+                    <div class="text-center mb-6">
+                        <i class="fas fa-database text-4xl mb-4" style="color: var(--primary-color);"></i>
+                        <h3 class="text-xl font-bold">Databases</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span>PostgreSQL</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="skill-bar rounded-full" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span>MySQL</span>
+                                <span>80%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="skill-bar rounded-full" style="width: 80%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tools & Cloud -->
+                <div class="tilt-card theme-card p-8 card-hover animate-slide-up">
+                    <div class="text-center mb-6">
+                        <i class="fas fa-tools text-4xl mb-4" style="color: var(--secondary-color);"></i>
+                        <h3 class="text-xl font-bold">Tools & Cloud</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span>Docker</span>
+                                <span>80%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="skill-bar rounded-full" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span>Git & GitHub</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="skill-bar rounded-full" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span>MinIO</span>
+                                <span>75%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="skill-bar rounded-full" style="width: 75%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Core Concepts -->
+                <div class="tilt-card theme-card p-8 card-hover animate-slide-up">
+                    <div class="text-center mb-6">
+                        <i class="fas fa-brain text-4xl mb-4" style="color: var(--accent-color);"></i>
+                        <h3 class="text-xl font-bold">Core Concepts</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span>DSA</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="skill-bar rounded-full" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span>RESTful APIs</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="skill-bar rounded-full" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span>Agile</span>
+                                <span>80%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="skill-bar rounded-full" style="width: 80%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-20 theme-section">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4 animate-slide-up section-title">Professional Experience</h2>
+            </div>
+            <div class="max-w-4xl mx-auto">
+                <div class="timeline">
+                    <div class="timeline-item animate-slide-left">
+                        <div class="ml-8 p-8 rounded-2xl shadow-lg card-hover theme-card">
+                            <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                                <div>
+                                    <h3 class="text-2xl font-bold">Java Developer Intern</h3>
+                                    <p class="text-lg font-semibold" style="color: var(--primary-color);">StrongMoment Private Limited</p>
+                                </div>
+                                <div class="text-sm mt-2 md:mt-0">
+                                    <i class="fas fa-calendar mr-2"></i>
+                                    Apr 2025 - Oct 2025
+                                </div>
+                            </div>
+                            <p class="mb-4">
+                                <i class="fas fa-map-marker-alt mr-2"></i>
+                                Gurugram, Haryana
+                            </p>
+                            <div class="space-y-3">
+                                <div class="flex items-start">
+                                    <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                                    <p>Worked on real-time enterprise application using Spring Boot microservices architecture</p>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                                    <p>Designed and developed RESTful APIs for authentication, user management, and reporting</p>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                                    <p>Integrated PostgreSQL for optimized and reliable data persistence</p>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                                    <p>Implemented file storage and retrieval using MinIO buckets</p>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                                    <p>Collaborated in Agile environment, participated in code reviews, and tested using Postman</p>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                                    <p>Deployed microservices in Docker containers ensuring scalability and maintainability</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 theme-section">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4 animate-slide-up section-title">Featured Projects</h2>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- E-Commerce Website -->
+                <div class="project-card theme-card animate-slide-up">
+                    <div class="h-48 bg-gradient-to-br from-blue-400 to-purple-500 flex items-center justify-center">
+                        <i class="fas fa-shopping-cart text-6xl text-white opacity-80"></i>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-xl font-bold mb-3">E-Commerce Website</h3>
+                        <p class="mb-4">
+                            Built a responsive shoe-store website using HTML, CSS (Tailwind), and JavaScript. 
+                            Implemented product filters, category sections, and mobile-first UI.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tag-pill">HTML</span>
+                            <span class="tag-pill">CSS</span>
+                            <span class="tag-pill">JavaScript</span>
+                            <span class="tag-pill">TailwindCSS</span>
+                        </div>
+                        <div class="flex space-x-4">
+                            <a href="#" class="text-purple-600 hover:text-purple-800 transition-colors">
+                                <i class="fas fa-external-link-alt mr-2"></i>Live Demo
+                            </a>
+                            <a href="#" class="text-gray-600 hover:text-gray-800 transition-colors">
+                                <i class="fab fa-github mr-2"></i>GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Portfolio Website -->
+                <div class="project-card theme-card animate-slide-up">
+                    <div class="h-48 bg-gradient-to-br from-green-400 to-blue-500 flex items-center justify-center">
+                        <i class="fas fa-user-circle text-6xl text-white opacity-80"></i>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-xl font-bold mb-3">Portfolio Website</h3>
+                        <p class="mb-4">
+                            Developed a personal portfolio using TailwindCSS showcasing skills and projects. 
+                            Created a minimal, clean, and fully responsive design.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tag-pill">HTML</span>
+                            <span class="tag-pill">CSS</span>
+                            <span class="tag-pill">TailwindCSS</span>
+                        </div>
+                        <div class="flex space-x-4">
+                            <a href="#" class="text-purple-600 hover:text-purple-800 transition-colors">
+                                <i class="fas fa-external-link-alt mr-2"></i>Live Demo
+                            </a>
+                            <a href="#" class="text-gray-600 hover:text-gray-800 transition-colors">
+                                <i class="fab fa-github mr-2"></i>GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- To-Do App -->
+                <div class="project-card theme-card animate-slide-up">
+                    <div class="h-48 bg-gradient-to-br from-orange-400 to-red-500 flex items-center justify-center">
+                        <i class="fas fa-tasks text-6xl text-white opacity-80"></i>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-xl font-bold mb-3">To-Do App</h3>
+                        <p class="mb-4">
+                            Created a dynamic to-do list app using HTML, CSS, and JavaScript. 
+                            Added persistent data storage via browser local storage.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tag-pill">HTML</span>
+                            <span class="tag-pill">CSS</span>
+                            <span class="tag-pill">JavaScript</span>
+                        </div>
+                        <div class="flex space-x-4">
+                            <a href="#" class="text-purple-600 hover:text-purple-800 transition-colors">
+                                <i class="fas fa-external-link-alt mr-2"></i>Live Demo
+                            </a>
+                            <a href="#" class="text-gray-600 hover:text-gray-800 transition-colors">
+                                <i class="fab fa-github mr-2"></i>GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="py-20 theme-section">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4 animate-slide-up section-title">Education</h2>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <div class="p-8 rounded-2xl shadow-lg card-hover theme-card animate-slide-left">
+                    <div class="text-center mb-6">
+                        <i class="fas fa-graduation-cap text-4xl text-purple-600 mb-4"></i>
+                        <h3 class="text-2xl font-bold">Bachelor of Technology</h3>
+                        <p class="text-lg font-semibold" style="color: var(--primary-color);">Computer Science Engineering</p>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="flex items-center">
+                            <i class="fas fa-university mr-3"></i>
+                            <span>Gurukula Kangri University, Haridwar</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-calendar mr-3"></i>
+                            <span>2021 - 2024</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-percentage mr-3"></i>
+                            <span>80%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-8 rounded-2xl shadow-lg card-hover theme-card animate-slide-right">
+                    <div class="text-center mb-6">
+                        <i class="fas fa-certificate text-4xl mb-4" style="color: var(--primary-color);"></i>
+                        <h3 class="text-2xl font-bold">Diploma</h3>
+                        <p class="text-lg font-semibold" style="color: var(--primary-color);">Electronics</p>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="flex items-center">
+                            <i class="fas fa-university mr-3"></i>
+                            <span>Govt. Polytechnic Sidcul, Haridwar</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-calendar mr-3"></i>
+                            <span>2018 - 2021</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-percentage mr-3"></i>
+                            <span>72%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 gradient-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-white mb-4 animate-slide-up section-title">Get In Touch</h2>
+            </div>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="animate-slide-left">
+                    <h3 class="text-3xl font-bold text-white mb-8">Let's Connect!</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-white bg-opacity-20 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-envelope text-white"></i>
+                            </div>
+                            <div>
+                                <p class="text-white font-semibold">Email</p>
+                                <p class="text-gray-200">anujshakya3m@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-white bg-opacity-20 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-phone text-white"></i>
+                            </div>
+                            <div>
+                                <p class="text-white font-semibold">Phone</p>
+                                <p class="text-gray-200">+91 76686 58068</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-white bg-opacity-20 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-map-marker-alt text-white"></i>
+                            </div>
+                            <div>
+                                <p class="text-white font-semibold">Location</p>
+                                <p class="text-gray-200">Gurugram, Haryana</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex space-x-4 mt-8">
+                        <a href="https://linkedin.com/in/anuj-shakya-382a641b9" target="_blank" class="w-12 h-12 bg-white bg-opacity-20 rounded-full flex items-center justify-center hover:bg-opacity-30 transition-all">
+                            <i class="fab fa-linkedin text-white"></i>
+                        </a>
+                        <a href="https://github.com/anuj1012" target="_blank" class="w-12 h-12 bg-white bg-opacity-20 rounded-full flex items-center justify-center hover:bg-opacity-30 transition-all">
+                            <i class="fab fa-github text-white"></i>
+                        </a>
+                        <a href="mailto:anujshakya3m@gmail.com" class="w-12 h-12 bg-white bg-opacity-20 rounded-full flex items-center justify-center hover:bg-opacity-30 transition-all">
+                            <i class="fas fa-envelope text-white"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="animate-slide-right">
+                    <div class="bg-white bg-opacity-10 backdrop-blur-lg rounded-2xl p-8">
+                        <form id="contactForm" class="space-y-6">
+                            <div>
+                                <label class="block text-white font-semibold mb-2">Name</label>
+                                <input type="text" required placeholder="Enter your name" class="form-input">
+                            </div>
+                            <div>
+                                <label class="block text-white font-semibold mb-2">Email</label>
+                                <input type="email" required placeholder="Enter your email" class="form-input">
+                            </div>
+                            <div>
+                                <label class="block text-white font-semibold mb-2">Message</label>
+                                <textarea rows="4" required placeholder="Your message" class="form-input"></textarea>
+                            </div>
+                            <button type="submit" class="btn-primary w-full">
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 theme-section">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p>&copy; 2024 Anuj Shakya. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <!-- Mobile Navigation Drawer (hidden on desktop) -->
+    <div id="mobile-nav-drawer" class="fixed inset-0 z-50 md:hidden bg-black bg-opacity-50 backdrop-blur-sm hidden transition-opacity duration-400">
+        <div class="drawer-panel top-0 right-0 w-4/5 h-full shadow-xl flex flex-col transform translate-x-full transition-transform duration-400 absolute">
+            <button id="mobile-nav-close" class="self-end p-5 focus:outline-none" aria-label="Close menu">
+                <i class="fas fa-times text-2xl" style="color:var(--primary-color);"></i>
+            </button>
+            <nav class="flex-1 flex flex-col mt-6 font-bold text-xl space-y-3 px-8">
+                <a href="#home" class="mobile-nav-link py-3 flex items-center">
+                    <i class="fas fa-house-user mr-4"></i> Home
+                </a>
+                <a href="#about" class="mobile-nav-link py-3 flex items-center">
+                    <i class="fas fa-user mr-4"></i> About
+                </a>
+                <a href="#skills" class="mobile-nav-link py-3 flex items-center">
+                    <i class="fas fa-cogs mr-4"></i> Skills
+                </a>
+                <a href="#experience" class="mobile-nav-link py-3 flex items-center">
+                    <i class="fas fa-briefcase mr-4"></i> Experience
+                </a>
+                <a href="#projects" class="mobile-nav-link py-3 flex items-center">
+                    <i class="fas fa-folder-open mr-4"></i> Projects
+                </a>
+                <a href="#contact" class="mobile-nav-link py-3 flex items-center">
+                    <i class="fas fa-envelope-open mr-4"></i> Contact
+                </a>
+            </nav>
+        </div>
+    </div>
+    
+    <!-- External JavaScript -->
+    <script src="js/portfolio.js"></script>
+    <script src="js/form-handler.js"></script>
+</body>
+</html>
