@@ -4,6 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anuj Shakya - Portfolio</title>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Reduce motion for users who prefer it */
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+            
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
     
     <!-- External CSS -->
     <link rel="stylesheet" href="css/portfolio.css">
@@ -650,29 +668,32 @@
     </footer>
     
     <!-- Mobile Navigation Drawer (hidden on desktop) -->
-    <div id="mobile-nav-drawer" class="fixed inset-0 z-50 md:hidden bg-black bg-opacity-50 backdrop-blur-sm hidden transition-opacity duration-400">
-        <div class="drawer-panel top-0 right-0 w-4/5 h-full shadow-xl flex flex-col transform translate-x-full transition-transform duration-400 absolute">
-            <button id="mobile-nav-close" class="self-end p-5 focus:outline-none" aria-label="Close menu">
-                <i class="fas fa-times text-2xl" style="color:var(--primary-color);"></i>
-            </button>
-            <nav class="flex-1 flex flex-col mt-6 font-bold text-xl space-y-3 px-8">
-                <a href="#home" class="mobile-nav-link py-3 flex items-center">
-                    <i class="fas fa-house-user mr-4"></i> Home
+    <div id="mobile-nav-drawer" class="fixed inset-0 z-50 md:hidden bg-black bg-opacity-30 backdrop-blur-sm hidden flex items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="mobile-menu-label">
+        <div class="drawer-panel w-11/12 max-w-md rounded-2xl shadow-2xl flex flex-col transform scale-90 opacity-0 transition-all duration-300 absolute" role="menubar">
+            <div class="flex justify-between items-center p-4 border-b border-gray-200 dark:border-gray-700">
+                <span id="mobile-menu-label" class="text-md font-bold">Menu</span>
+                <button id="mobile-nav-close" class="p-1 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-primary" aria-label="Close menu">
+                    <i class="fas fa-times text-xl" style="color:var(--primary-color);"></i>
+                </button>
+            </div>
+            <nav class="flex-1 flex flex-col mt-1 font-medium text-base px-2 py-2" role="menubar">
+                <a href="#home" class="mobile-nav-link py-3 flex items-center rounded-lg mx-2" role="menuitem">
+                    <i class="fas fa-house-user mr-3 text-sm"></i> Home
                 </a>
-                <a href="#about" class="mobile-nav-link py-3 flex items-center">
-                    <i class="fas fa-user mr-4"></i> About
+                <a href="#about" class="mobile-nav-link py-3 flex items-center rounded-lg mx-2" role="menuitem">
+                    <i class="fas fa-user mr-3 text-sm"></i> About
                 </a>
-                <a href="#skills" class="mobile-nav-link py-3 flex items-center">
-                    <i class="fas fa-cogs mr-4"></i> Skills
+                <a href="#skills" class="mobile-nav-link py-3 flex items-center rounded-lg mx-2" role="menuitem">
+                    <i class="fas fa-cogs mr-3 text-sm"></i> Skills
                 </a>
-                <a href="#experience" class="mobile-nav-link py-3 flex items-center">
-                    <i class="fas fa-briefcase mr-4"></i> Experience
+                <a href="#experience" class="mobile-nav-link py-3 flex items-center rounded-lg mx-2" role="menuitem">
+                    <i class="fas fa-briefcase mr-3 text-sm"></i> Experience
                 </a>
-                <a href="#projects" class="mobile-nav-link py-3 flex items-center">
-                    <i class="fas fa-folder-open mr-4"></i> Projects
+                <a href="#projects" class="mobile-nav-link py-3 flex items-center rounded-lg mx-2" role="menuitem">
+                    <i class="fas fa-folder-open mr-3 text-sm"></i> Projects
                 </a>
-                <a href="#contact" class="mobile-nav-link py-3 flex items-center">
-                    <i class="fas fa-envelope-open mr-4"></i> Contact
+                <a href="#contact" class="mobile-nav-link py-3 flex items-center rounded-lg mx-2" role="menuitem">
+                    <i class="fas fa-envelope-open mr-3 text-sm"></i> Contact
                 </a>
             </nav>
         </div>

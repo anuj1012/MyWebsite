@@ -1,10 +1,44 @@
 // Smooth scrolling for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        // Only apply smooth scrolling to navigation links
+        if (this.getAttribute('href').length > 1) { // Exclude empty or single # links
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                // For modern browsers
+                if ('scrollBehavior' in document.documentElement.style) {
+                    target.scrollIntoView({ 
+                        behavior: 'smooth', 
+                        block: 'start',
+                        inline: 'nearest'
+                    });
+                } else {
+                    // Fallback for older browsers
+                    const targetPosition = target.offsetTop;
+                    const startPosition = window.pageYOffset;
+                    const distance = targetPosition - startPosition;
+                    const duration = 800;
+                    let start = null;
+                    
+                    function animation(currentTime) {
+                        if (start === null) start = currentTime;
+                        const timeElapsed = currentTime - start;
+                        const run = ease(timeElapsed, startPosition, distance, duration);
+                        window.scrollTo(0, run);
+                        if (timeElapsed < duration) requestAnimationFrame(animation);
+                    }
+                    
+                    function ease(t, b, c, d) {
+                        t /= d / 2;
+                        if (t < 1) return c / 2 * t * t + b;
+                        t--;
+                        return -c / 2 * (t * (t - 2) - 1) + b;
+                    }
+                    
+                    requestAnimationFrame(animation);
+                }
+            }
         }
     });
 });
@@ -164,28 +198,33 @@ document.addEventListener('DOMContentLoaded', function() {
     
     if (!btn || !drawer || !drawerPanel || !closeBtn) return;
     
-    // Improved mobile menu open function
+    // Improved mobile menu open function with smoother popup effect
     const open = () => {
         drawer.classList.add('active');
-        drawerPanel.style.transform = 'translateX(0)';
+        
+        // Prevent scrolling when menu is open
         body.style.overflow = 'hidden';
-        body.style.touchAction = 'none'; // Prevent scrolling when menu is open
-        setTimeout(() => drawerPanel.style.transition = 'transform 0.3s ease-out', 10);
+        body.style.touchAction = 'none';
         
         // Add keyboard accessibility
         drawerPanel.setAttribute('aria-hidden', 'false');
+        
+        // Focus first link for accessibility
+        const firstLink = drawerPanel.querySelector('.mobile-nav-link');
+        if (firstLink) firstLink.focus();
     };
     
     // Improved mobile menu close function
     const close = () => {
-        drawerPanel.style.transform = 'translateX(100%)';
-        drawerPanel.style.transition = 'transform 0.3s ease-in';
+        // Let CSS handle the transition
+        drawer.classList.remove('active');
+        
+        // Clean up after animation completes
         setTimeout(() => { 
-            drawer.classList.remove('active'); 
             body.style.overflow = ''; 
             body.style.touchAction = '';
             drawerPanel.setAttribute('aria-hidden', 'true');
-        }, 300);
+        }, 350);
     };
     
     // Enhanced event listeners
@@ -219,20 +258,4 @@ document.addEventListener('DOMContentLoaded', function() {
     (drawer.querySelectorAll('.mobile-nav-link') || []).forEach(link => {
         link.addEventListener('click', close);
     });
-    
-    // Add swipe to close functionality for mobile
-    let touchStartX = 0;
-    let touchEndX = 0;
-    
-    drawerPanel.addEventListener('touchstart', e => {
-        touchStartX = e.changedTouches[0].screenX;
-    }, false);
-    
-    drawerPanel.addEventListener('touchend', e => {
-        touchEndX = e.changedTouches[0].screenX;
-        // If swipe is to the right (closing direction)
-        if (touchStartX - touchEndX > 50) {
-            close();
-        }
-    }, false);
 });

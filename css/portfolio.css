@@ -12,6 +12,11 @@
     --bg-card: #ffffff;
     --border-color: rgba(0, 0, 0, 0.1);
     --shadow-color: rgba(0, 0, 0, 0.1);
+    /* Animation timing */
+    --transition-fast: 0.2s ease;
+    --transition-normal: 0.3s ease;
+    --transition-slow: 0.4s ease;
+    --transition-popup: 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 /* Dark Theme */
@@ -175,13 +180,41 @@ p, li, span, small {
     height: 3px;
     background: var(--primary-gradient);
     border-radius: 3px;
-    transition: all 0.3s ease;
+    transition: all var(--transition-normal);
     transform: translateX(-50%);
 }
 
 .nav-link:hover::after,
 .nav-link.active::after {
     width: 70%;
+}
+
+/* Smooth hover effects for all interactive elements */
+.btn-primary,
+.btn-secondary {
+    transition: all var(--transition-normal);
+}
+
+.btn-primary:hover,
+.btn-secondary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Smooth card hover effects */
+.project-card,
+.tilt-card,
+.theme-card {
+    transition: all var(--transition-normal);
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.tilt-card:hover {
+    box-shadow: 0 24px 60px var(--shadow-color);
 }
 
 /* Theme-aware surfaces */
@@ -210,6 +243,21 @@ p, li, span, small {
 }
 .animate-slide-right { 
     animation: slideRight 0.8s ease-out; 
+}
+
+/* Smooth transitions for all interactive elements */
+* {
+    transition: background-color var(--transition-fast), 
+                color var(--transition-fast), 
+                border-color var(--transition-fast), 
+                opacity var(--transition-fast),
+                transform var(--transition-fast);
+}
+
+/* Remove transitions for elements that should not animate */
+.no-transition,
+.no-transition * {
+    transition: none !important;
 }
 
 @keyframes fadeIn { 
@@ -251,7 +299,8 @@ p, li, span, small {
     background: var(--primary-gradient); 
     height: 8px; 
     border-radius: 4px; 
-    transition: width 1.5s ease-in-out; 
+    transition: width 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94); 
+    will-change: width;
 }
 
 .floating { 
@@ -520,37 +569,59 @@ p, li, span, small {
 /* Mobile menu */
 #mobile-nav-drawer {
     display: none;
+    opacity: 0;
+    transition: opacity var(--transition-normal);
 }
 
 #mobile-nav-drawer.active {
-    display: block;
-    animation: fadeIn 0.3s ease;
+    display: flex;
+    opacity: 1;
 }
 
 .drawer-panel {
-    background: var(--bg-secondary);
-    box-shadow: -5px 0 25px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    transform: scale(0.9);
+    opacity: 0;
+    transition: all var(--transition-popup);
+}
+
+[data-theme="dark"] .drawer-panel {
+    background: rgba(17, 24, 39, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#mobile-nav-drawer.active .drawer-panel {
+    transform: scale(1);
+    opacity: 1;
 }
 
 .mobile-nav-link {
     color: var(--primary-color);
-    border-radius: 12px;
-    transition: all 0.3s ease;
-    font-weight: 600;
-    padding: 16px 20px;
-    margin: 5px 0;
+    border-radius: 8px;
+    transition: all var(--transition-fast);
+    font-weight: 500;
+    padding: 12px 16px;
+    margin: 4px 0;
     display: flex;
     align-items: center;
+    font-size: 1rem;
 }
 
 .mobile-nav-link:hover {
     background: var(--primary-gradient);
     color: white;
+    transform: translateX(5px);
 }
 
 .mobile-nav-link i {
-    width: 24px;
+    width: 20px;
     text-align: center;
+    font-size: 1rem;
+    transition: all var(--transition-fast);
 }
 
 /* Responsive styles */
@@ -564,7 +635,36 @@ p, li, span, small {
     }
     
     #navbar { 
-        padding-right: 0; 
+        padding: 0.5rem 0; /* Reduced padding */
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+    
+    [data-theme="dark"] #navbar {
+        background: rgba(17, 24, 39, 0.8);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    /* Reduce navbar height */
+    #navbar .h-16 {
+        height: 3.5rem; /* Reduced from 4rem */
+    }
+    
+    /* Smaller logo */
+    #navbar .text-xl {
+        font-size: 1.125rem; /* Reduced from 1.25rem */
+    }
+    
+    /* Smaller menu button */
+    #mobile-menu-btn {
+        padding: 0.5rem; /* Reduced padding */
+    }
+    
+    /* Smaller theme toggle */
+    #theme-toggle {
+        padding: 0.5rem; /* Reduced padding */
     }
     
     .text-5xl { 
