@@ -537,12 +537,20 @@ p, li, span, small {
     border-radius: 12px;
     transition: all 0.3s ease;
     font-weight: 600;
-    padding: 12px 20px;
+    padding: 16px 20px;
+    margin: 5px 0;
+    display: flex;
+    align-items: center;
 }
 
 .mobile-nav-link:hover {
     background: var(--primary-gradient);
     color: white;
+}
+
+.mobile-nav-link i {
+    width: 24px;
+    text-align: center;
 }
 
 /* Responsive styles */
@@ -560,11 +568,11 @@ p, li, span, small {
     }
     
     .text-5xl { 
-        font-size: 2.5rem !important; 
+        font-size: 2.2rem !important; 
     }
     
     .md\:text-7xl { 
-        font-size: 3rem !important; 
+        font-size: 2.5rem !important; 
     }
     
     .section-title::after {
@@ -599,6 +607,51 @@ p, li, span, small {
         -webkit-text-fill-color: transparent;
         background-clip: text;
     }
+    
+    /* Mobile project cards */
+    .grid.md\:grid-cols-2.lg\:grid-cols-3.gap-8 {
+        gap: 1.5rem;
+    }
+    
+    /* Mobile experience timeline */
+    .timeline {
+        padding-left: 20px;
+    }
+    
+    .timeline::before {
+        left: 10px;
+    }
+    
+    .timeline-item::before {
+        left: -33px;
+        width: 16px;
+        height: 16px;
+    }
+    
+    /* Mobile hero section */
+    .gradient-bg .max-w-7xl {
+        padding: 0 1rem;
+    }
+    
+    /* Mobile about section */
+    .grid.md\:grid-cols-2.gap-12.items-center {
+        gap: 2rem;
+    }
+    
+    /* Mobile skills grid */
+    .grid.md\:grid-cols-2.lg\:grid-cols-3.gap-8 {
+        gap: 1.5rem;
+    }
+    
+    /* Mobile contact section */
+    .grid.md\:grid-cols-2.gap-12.items-center {
+        gap: 2rem;
+    }
+    
+    /* Mobile form inputs */
+    .form-input {
+        padding: 14px 16px;
+    }
 }
 
 @media (min-width: 768px) {
@@ -609,5 +662,35 @@ p, li, span, small {
     
     .md\:flex { 
         display: flex !important; 
+    }
+}
+
+/* Additional mobile improvements */
+@media (max-width: 480px) {
+    .btn-primary,
+    .btn-secondary {
+        padding: 14px 20px;
+        font-size: 0.9rem;
+    }
+    
+    .floating .w-32.h-32 {
+        width: 28vw;
+        height: 28vw;
+        max-width: 120px;
+        max-height: 120px;
+    }
+    
+    .floating .fas.fa-code {
+        font-size: 40px;
+    }
+    
+    .p-8 {
+        padding: 1.5rem;
+    }
+    
+    .tag-pill {
+        padding: 4px 10px;
+        font-size: 0.75rem;
+        margin: 0 3px 3px 0;
     }
 }

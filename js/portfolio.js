@@ -164,26 +164,75 @@ document.addEventListener('DOMContentLoaded', function() {
     
     if (!btn || !drawer || !drawerPanel || !closeBtn) return;
     
+    // Improved mobile menu open function
     const open = () => {
         drawer.classList.add('active');
         drawerPanel.style.transform = 'translateX(0)';
         body.style.overflow = 'hidden';
-        setTimeout(() => drawerPanel.style.transition = 'transform 0.3s', 10);
+        body.style.touchAction = 'none'; // Prevent scrolling when menu is open
+        setTimeout(() => drawerPanel.style.transition = 'transform 0.3s ease-out', 10);
+        
+        // Add keyboard accessibility
+        drawerPanel.setAttribute('aria-hidden', 'false');
     };
     
+    // Improved mobile menu close function
     const close = () => {
         drawerPanel.style.transform = 'translateX(100%)';
-        drawerPanel.style.transition = 'transform 0.3s';
+        drawerPanel.style.transition = 'transform 0.3s ease-in';
         setTimeout(() => { 
             drawer.classList.remove('active'); 
             body.style.overflow = ''; 
-        }, 320);
+            body.style.touchAction = '';
+            drawerPanel.setAttribute('aria-hidden', 'true');
+        }, 300);
     };
     
+    // Enhanced event listeners
     btn.addEventListener('click', open);
+    btn.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            open();
+        }
+    });
+    
     closeBtn.addEventListener('click', close);
+    closeBtn.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            close();
+        }
+    });
+    
     drawer.addEventListener('click', e => { if (e.target === drawer) close(); });
+    
+    // Close menu when pressing Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && drawer.classList.contains('active')) {
+            close();
+            btn.focus(); // Return focus to menu button
+        }
+    });
+    
+    // Close menu when clicking on links
     (drawer.querySelectorAll('.mobile-nav-link') || []).forEach(link => {
         link.addEventListener('click', close);
     });
+    
+    // Add swipe to close functionality for mobile
+    let touchStartX = 0;
+    let touchEndX = 0;
+    
+    drawerPanel.addEventListener('touchstart', e => {
+        touchStartX = e.changedTouches[0].screenX;
+    }, false);
+    
+    drawerPanel.addEventListener('touchend', e => {
+        touchEndX = e.changedTouches[0].screenX;
+        // If swipe is to the right (closing direction)
+        if (touchStartX - touchEndX > 50) {
+            close();
+        }
+    }, false);
 });
